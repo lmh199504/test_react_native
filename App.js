@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Animated from 'react-native-reanimated';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator,CardStyleInterpolators } from '@react-navigation/stack';
+
 const Drawer = createDrawerNavigator();
 
 class MyTabBar extends React.Component{
@@ -164,9 +165,15 @@ class NoHeader extends React.Component{
 class StackCom extends React.Component{
   render(){
     return (
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} header={ props => {<NoHeader {...props}/>} }/>
-        <Stack.Screen name="Search" component={Search} options={{ title:"搜索" }}/>
+      <Stack.Navigator initialRouteName="Home" options={{
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+      }}>
+        <Stack.Screen name="Home" component={HomeScreen} header={ props => {<NoHeader {...props}/>} } options={{
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+      }}/>
+        <Stack.Screen name="Search" component={Search} options={{ title:"搜索" }} options={{
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+      }}/>
       </Stack.Navigator>
     )
   }
