@@ -1,33 +1,20 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity,Button,Image,Dimensions,StatusBar,SafeAreaView  } from 'react-native';
+import { Text, View, TouchableOpacity,Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Animated from 'react-native-reanimated';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator,CardStyleInterpolators } from '@react-navigation/stack';
-import  DrawerContent from './components/DrawerContent'
-var {height,width} =  Dimensions.get('window');
+// import  DrawerContent from './components/DrawerContent'
 const Drawer = createDrawerNavigator();
 
 class MyTabBar extends React.Component{
-  onPress = () => {
-    console.log(111111111111111)
-    const { navigation } = this.props
-    navigation.navigate('Search')
-
-  }
   render(){
     const { state, descriptors, navigation, position } = this.props
-    const StatusBarColor = state.index !== 0 ?'transparent': '#0a0b0d'
     return (
       <View style={{ flexDirection: 'row',paddingLeft:30,paddingRight:20, paddingTop: 20,justifyContent:'space-between' }}>
-        <StatusBar barStyle="default" backgroundColor= { StatusBarColor } StatusBarAnimation="fade" />
-        <TouchableOpacity
-          accessibilityRole="button"
-          onPress={ () => navigation.openDrawer()}>
-          <View>
-            <Image source={require('./assets/images/caidan.png')} style={{ width:15,height:15,marginTop:8 }}/>
-          </View>
+        <TouchableOpacity>
+          <Button title="菜单" onPress={ () => navigation.openDrawer() }></Button>
         </TouchableOpacity>
         
         <View style={{ flexDirection:'row',justifyContent:"space-between",flex:4 }}>
@@ -86,17 +73,9 @@ class MyTabBar extends React.Component{
             );
           })}
         </View>
-        <TouchableOpacity
-           accessibilityRole="button"
-           onPress={ () => this.onPress() }
-        >
-          <View >
-            <Image source={require('./assets/images/shousuo.png')} style={{ width:15,height:15,marginTop:8 }}/>
-          </View>
-          
-          {/* <Button onPress={ () => navigation.navigate('Search')} title="搜索"/> */}
+        <TouchableOpacity >
+          <Button onPress={ () => navigation.navigate('Search')} title="搜索"/>
         </TouchableOpacity >
-        <View style={{position:'absolute',top:height - 75,zIndex:66,backgroundColor:'red',width:width,height:50}}><Text>666</Text></View>
       </View>
     );
   }
@@ -114,36 +93,28 @@ function Search(){
 
 function HomeScreen() {
   return (
-    <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
-      <Tab.Screen name="Settings" component={SettingsScreen}/>
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-    </Tab.Navigator>
+    
+      <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
+        <Tab.Screen name="Settings" component={SettingsScreen}/>
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
   );
 }
 
-class SettingsScreen extends React.Component {
-
-  render(){
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        
-        <Text>Settings!</Text>
-      </View>
-    )
-  }
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
 }
 
-class ProfileScreen extends React.Component {
-
-  render(){
-
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        
-        <Text>Profile!</Text>
-      </View>
-    )
-  }
+function ProfileScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Profile!</Text>
+    </View>
+  );
 }
 
 function NotificationsScreen({ navigation }) {
@@ -156,21 +127,21 @@ function NotificationsScreen({ navigation }) {
 
 
 const Tab = createMaterialTopTabNavigator();
-// class DrawerContent extends React.Component{
-//   pressFun(){
-//     this.props.navigation.navigate('Search')
-//   }
-//   render(){
-//     const { state, descriptors, navigation, position } = this.props
-//     return(
-//       <View>
-//         {/* <Button title="首页" onPress={ () => navigation.navigate('Profile')}></Button>
-//         <Button title="按钮" onPress={ () => this.pressFun() }></Button> */}
+class DrawerContent extends React.Component{
+  pressFun(){
+    this.props.navigation.navigate('Search')
+  }
+  render(){
+    const { state, descriptors, navigation, position } = this.props
+    return(
+      <View>
+        {/* <Button title="首页" onPress={ () => navigation.navigate('Profile')}></Button>
+        <Button title="按钮" onPress={ () => this.pressFun() }></Button> */}
 
-//       </View>
-//     )
-//   }
-// }
+      </View>
+    )
+  }
+}
 
 
 const Stack = createStackNavigator();
@@ -206,7 +177,7 @@ export default function App() {
         <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator> */}
-      <Drawer.Navigator initialRouteName="Home" drawerContent={ props => <DrawerContent {...props}/>} drawerStyle={{width:310}}>
+      <Drawer.Navigator initialRouteName="Home" drawerContent={ props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="StackCom" component={StackCom} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
