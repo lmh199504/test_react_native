@@ -13,7 +13,7 @@ class App extends React.Component {
         return (
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
-                    <Stack.Screen name="Home" component={SwiperHome} options={{
+                    <Stack.Screen name="Home" component={HomeDrawer} options={{
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                         header: () => { return null }
                     }} />
