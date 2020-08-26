@@ -10,12 +10,16 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@ant-design/react-native": "^4.0.5",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/drawer": "^5.9.0",
     "@react-navigation/material-top-tabs": "^5.2.16",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-react-native": "^4.0.1",
     "navigation": "^5.3.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
@@ -24,6 +28,7 @@
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.1.6",
     "react-native-screens": "^2.10.1",
+    "react-native-swiper": "^1.6.0",
     "react-native-tab-view": "^2.15.1",
     "react-navigation": "^4.4.0",
     "react-navigation-stack": "^2.8.2"

@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     iconImg:{
         width:25,
-        height:15,
+        height:17,
         justifyContent:'space-around'
     },
     foruItem:{
@@ -112,6 +112,21 @@ const styles = StyleSheet.create({
         color:'#3a3a3a',
         fontSize:11,
         marginTop:2
+    },
+    fixedBottom:{
+        position:"absolute",
+        bottom:0,
+        width:"100%",
+        flexDirection:"row",
+        backgroundColor:'#fff',
+        justifyContent:"space-between",
+        padding:15,
+        borderTopColor:'#f0f0f0',
+        borderTopWidth:1,
+        borderStyle:'solid'
+    },
+    flexBottomItem:{
+        flexDirection:'row'
     }
 })
 
