@@ -4,7 +4,10 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 
 import HomeDrawer from './pages/HomeDrawer'
 import SearchScreen from './pages/SearchScreen'
-import SwiperHome from './pages/Index'
+import PlayScreen from './pages/PlayScreen'
+// import SwiperHome from './pages/Index/test'
+// import HomeTabNav from './pages/HomeTabNav'
+
 
 const Stack = createStackNavigator();
 
@@ -20,7 +23,11 @@ class App extends React.Component {
                     <Stack.Screen name="Search" component={SearchScreen} options={{ title: "搜索" }} options={{
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
                     }} />
+                    <Stack.Screen name="Play" component={PlayScreen} options={{ title: "播放" }} options={{
+                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+                    }} />
                 </Stack.Navigator>
+
             </NavigationContainer>
         )
     }

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity,Button } from 'react-native';
+import { Text, View, TouchableOpacity,Button,Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Animated from 'react-native-reanimated';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator,CardStyleInterpolators } from '@react-navigation/stack';
+var {height,width} =  Dimensions.get('window');
 // import  DrawerContent from './components/DrawerContent'
 const Drawer = createDrawerNavigator();
 
@@ -54,7 +55,7 @@ class MyTabBar extends React.Component{
             });
   
             const fontSize = Animated.interpolate(position, {
-              inputRange:[0,100],
+              inputRange,
               outputRange: inputRange.map(i => (i === index ? 18 : 16)),
             });
             return (
@@ -76,6 +77,7 @@ class MyTabBar extends React.Component{
         <TouchableOpacity >
           <Button onPress={ () => navigation.navigate('Search')} title="搜索"/>
         </TouchableOpacity >
+        <View style={{ marginBottom:1,position: 'absolute',left:0, top: height - 75, zIndex: 100, backgroundColor: 'red', width: width, height: 50 }}><Text>111</Text></View>
       </View>
     );
   }
@@ -172,15 +174,15 @@ class StackCom extends React.Component{
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
-        <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
+        {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
         <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator> */}
-      <Drawer.Navigator initialRouteName="Home" drawerContent={ props => <DrawerContent {...props}/>}>
+      </Tab.Navigator>
+      {/* <Drawer.Navigator initialRouteName="Home" drawerContent={ props => <DrawerContent {...props}/>}>
         <Drawer.Screen name="StackCom" component={StackCom} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
     </NavigationContainer>
   );
 }

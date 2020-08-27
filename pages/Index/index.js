@@ -4,7 +4,7 @@ import React from 'react'
 import Swiper from 'react-native-swiper'
 
 import { View, StyleSheet, Text, Dimensions, TouchableOpacity, Image, Animated } from 'react-native'
-// import { Button } from '@ant-design/react-native';
+import { Button,Carousel } from '@ant-design/react-native';
 
 var { height, width } = Dimensions.get('window');
 class SwiperHome extends React.Component {
@@ -80,7 +80,7 @@ class SwiperHome extends React.Component {
                     </View>
                     <View style={styles.slide1}>
                         <Text style={styles.text}>发现</Text>
-                        {/* <Button type="warning">warning</Button> */}
+                        <Button type="warning">warning</Button>
                     </View>
                     <View style={styles.slide2}>
                         <Text style={styles.text}>云村</Text>

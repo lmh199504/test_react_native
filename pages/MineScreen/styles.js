@@ -69,6 +69,87 @@ const styles = StyleSheet.create({
         padding:15,
         borderTopLeftRadius:20,
         borderTopRightRadius:20
+    },
+    main_title:{
+        flexDirection:"row",
+        marginBottom:10,
+        justifyContent:"space-between"
+    },
+    main_title_text:{
+        fontSize:15
+    },
+    more_con:{
+        flexDirection:'row',
+        marginTop:2
+    },
+    more:{
+        fontSize:14,
+        color:'#b3b3b3'
+    },
+    more_img:{
+        width:20,
+        height:20,
+        marginTop:-1
+    },
+    myswiper:{
+        height:150,
+
+    },
+    mymusic_item:{
+        width:120,
+        height:160,
+        backgroundColor:'gray',
+        marginRight:15,
+        borderRadius:10,
+        overflow:"hidden",
+        position:'relative'
+    },
+    music_Item_bg:{
+        position:'absolute'
+    },
+    center_img:{
+        width:20,
+        height:20,
+        marginTop:60,
+        marginLeft:'40%',
+        marginBottom:5,
+    },
+    music_Item_Text:{
+        textAlign:'center',
+        color:'#fff',
+        fontSize:12
+    },
+    geDan:{
+        flexDirection:'row',
+        flexWrap:'wrap',
+        justifyContent:'space-between',
+        paddingBottom:100
+    },
+    geDan_Item:{
+        width:'48%',
+        height:50,
+        // backgroundColor:'gray',
+        borderRadius:10,
+        marginBottom:10,
+        flexDirection:'row',
+        overflow:"hidden"
+    },
+    geDan_Item_bg:{
+        width:50,
+        height:50,
+        borderRadius:10,
+        marginRight:10
+    },
+    geDan_Item_title:{
+        color:'#828282',
+        fontSize:14,
+        marginTop:5,
+        overflow:"hidden"
+    },
+    geDan_Item_subTitle:{
+        color:"#acacac",
+        fontSize:10,
+        marginTop:5
     }
 })
 

@@ -12,8 +12,6 @@ class DrawerContent extends React.Component {
         const { state, descriptors, navigation, position } = this.props
         return (
             <View style={styles.main}>
-                {/* <Button title="首页" onPress={ () => navigation.navigate('Profile')}></Button>
-          <Button title="按钮" onPress={ () => this.pressFun() }></Button> */}
                 <DrawerContentScrollView style={{marginBottom:30}}>
                     <LinearGradient colors={['#7b7b7b', '#5d5d5d']} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} style={styles.topCon}>
                         <View>
