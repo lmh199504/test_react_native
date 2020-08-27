@@ -98,7 +98,7 @@ class MyTabBar extends React.Component {
                         </View>
                     </TouchableOpacity >
                 </View>
-                <TouchableHighlight onPress={ () => navigation.navigate('Play') }  style={{ marginBottom:1,position: 'absolute',left:0, top: height - 75, zIndex: 100, backgroundColor: 'gray', width: width, height: 50 }}>
+                <TouchableHighlight onPress={ () => navigation.navigate('Play') }  style={{ marginBottom:1,position: 'absolute',left:0, top: height - 74, zIndex: 100, backgroundColor: 'gray', width: width, height: 50 }}>
                     <View><Text>111</Text></View>
                 </TouchableHighlight>
                 

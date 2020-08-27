@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     red_menu:{
         width:70,
-        height:70,
+        height:80,
         // backgroundColor:'red',
         marginRight:10
     },
@@ -43,6 +43,11 @@ const styles = StyleSheet.create({
         left:"50%",
         marginLeft:-12.5,
         marginTop:-12.5
+    },
+    menu_text:{
+        marginTop:5,
+        fontSize:14,
+        color:'#404040'
     }
 })
 

@@ -40,6 +40,42 @@ class FindScreen extends React.Component {
                             </View>
                             <Text style={ styles.menu_text}>每日推荐</Text>
                         </View>
+                        <View style={styles.red_menu}>
+                            <View style={styles.menu_Icon}>
+                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                            </View>
+                            <Text style={ styles.menu_text}>每日推荐</Text>
+                        </View>
+                        <View style={styles.red_menu}>
+                            <View style={styles.menu_Icon}>
+                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                            </View>
+                            <Text style={ styles.menu_text}>每日推荐</Text>
+                        </View>
+                        <View style={styles.red_menu}>
+                            <View style={styles.menu_Icon}>
+                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                            </View>
+                            <Text style={ styles.menu_text}>每日推荐</Text>
+                        </View>
+                        <View style={styles.red_menu}>
+                            <View style={styles.menu_Icon}>
+                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                            </View>
+                            <Text style={ styles.menu_text}>每日推荐</Text>
+                        </View>
+                        <View style={styles.red_menu}>
+                            <View style={styles.menu_Icon}>
+                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                            </View>
+                            <Text style={ styles.menu_text}>每日推荐</Text>
+                        </View>
+                        <View style={styles.red_menu}>
+                            <View style={styles.menu_Icon}>
+                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                            </View>
+                            <Text style={ styles.menu_text}>每日推荐</Text>
+                        </View>
    
                     </ScrollView>
                 </View>
