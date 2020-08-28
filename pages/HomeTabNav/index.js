@@ -16,14 +16,14 @@ class MyTabBar extends React.Component {
 
     render() {
         const { state, descriptors, navigation, position } = this.props
-        const StatusBarColor = state.index !== 0 ? '#fff' : '#0a0b0d'
+        const StatusBarColor = state.index !== 0 ? '#fff' : '#1b1e23'
         const backgroundColor = state.index === 0 ? "#1b1e23":'#fff' 
         const Color = state.index === 0 ? "#fff":"#000" 
         
 
         return (
             <View>
-                <View style={{flexDirection: 'row',paddingLeft: 30, paddingRight: 30, paddingTop: 20, justifyContent: 'space-between',overflow:"visible",backgroundColor}}>
+                <View style={{flexDirection: 'row',paddingLeft: 30, paddingRight: 30, paddingTop: 20,paddingBottom:15, justifyContent: 'space-between',overflow:"visible",backgroundColor}}>
                     <StatusBar barStyle="default" backgroundColor={StatusBarColor} StatusBarAnimation="fade" />
                     <TouchableOpacity
                         accessibilityRole="button"

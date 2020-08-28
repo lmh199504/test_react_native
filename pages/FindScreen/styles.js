@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
         height:'100%'
     },
     red_menu:{
-        width:70,
+        width:50,
         height:80,
         // backgroundColor:'red',
-        marginRight:10
+        marginRight:30
     },
     menu_Icon:{
         backgroundColor:"red",
@@ -46,8 +46,111 @@ const styles = StyleSheet.create({
     },
     menu_text:{
         marginTop:5,
+        fontSize:12,
+        color:'#404040',
+        textAlign:'center'
+    },
+    titelCon:{
+        flexDirection:'row',
+        width:"100%",
+        justifyContent:'space-between',
+        marginTop:20,
+        marginBottom:10
+    },
+    titelCon_Text:{
+        fontWeight:"bold",
+        fontSize:16,
+        color:"#000",
+        
+    },
+    checkMoreView:{
+        height:30,
+        width:80,
+        borderRadius:15,
+        borderStyle:"solid",
+        borderColor:'#f2f2f2',
+        borderWidth:2,
+        marginTop:-5
+    },
+    checkMoreText:{
+        textAlign:"center",
+        lineHeight:28,
+        color:"#515151",
         fontSize:14,
-        color:'#404040'
+    },
+    hotsItem:{
+        width:110,
+        position:'relative',
+        marginRight:15
+    },
+    hotsMusic:{
+        width:110,
+        height:110,
+        borderRadius:10,
+        overflow:'hidden',
+        backgroundColor:'gray'
+    },
+    hotsMusicTitle:{
+        marginTop:10,
+        color:"#898989"
+    },
+    playCon:{
+        position:"absolute"
+    },
+    playBg:{
+        width:'100%',
+        height:'100%'
+    },
+    playCon:{
+        position:'absolute',
+        top:5,
+        right:5,
+        flexDirection:"row"
+    },
+    playImg:{
+        width:15,
+        height:15,
+        marginTop:3
+    },
+    playNum:{
+        color:"#fff"
+    },
+    suggest:{
+        width:'100%',
+        marginRight:15,
+    },
+    musicItem:{
+        flexDirection:"row",
+        justifyContent:'space-between',
+        marginBottom:10
+    },
+    left_MusicItem:{
+        flexDirection:"row"
+    },
+    musicItemCon:{
+        width:50,
+        height:50,
+        borderRadius:5,
+        overflow:"hidden",
+        marginRight:5
+    },
+    musicItem_bg:{
+        width:'100%',
+        height:'100%',
+        borderRadius:5,
+        overflow:"hidden"
+    },
+    right_play:{
+        width:30,
+        height:30
+    },
+    songName:{
+        color:"#1b1b1b",
+        fontSize:14
+    },
+    singerName:{
+        color:'#bdbdbd',
+        fontSize:13
     }
 })
 
