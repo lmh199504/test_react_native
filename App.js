@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Text, TouchableHighlight } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
@@ -9,19 +10,18 @@ import PlayScreen from './pages/PlayScreen'
 // import HomeTabNav from './pages/HomeTabNav'
 import LoginScreen from './pages/LoginScreen'
 // import player from './pages/Audio'
-import { reqGetHome } from './api'
+import GeDanScreen from './pages/GeDan'
+import GeDanTabScreen from './pages/GeDanTab'
+
 
 const Stack = createStackNavigator();
 
 class App extends React.Component {
 
-    componentDidMount = () => {
-        reqGetHome().then(res => {
-            console.log(res)
-        })
-    }
 
     render() {
+
+
         return (
             <NavigationContainer>
                 <Stack.Navigator initialRouteName={'Home'} >
@@ -40,10 +40,38 @@ class App extends React.Component {
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                         header: () => { return null }
                     }} />
+
+
+                    <Stack.Screen name="GeDan" component={GeDanScreen} options={
+                        ({ navigation }) => ({
+                            title: "歌单",
+                            headerTitleAlign: "center",
+                            headerRight: () => <ToTab navigation={navigation}/>,
+                            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+                            // header: () => { return null }
+
+                        })
+                    } />
+
+                    <Stack.Screen name="GeDanTab" component={GeDanTabScreen} options={{
+                        title: "全部歌单",
+                        headerTitleAlign: "center",
+                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+                    }} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
     }
 }
+
+class ToTab extends React.Component {
+
+    render() {
+        return (<TouchableHighlight onPress={() => this.props.navigation.push("GeDanTab")}>
+            <Text style={{ marginRight: 20 }}>歌单分类</Text>
+        </TouchableHighlight>)
+    }
+}
+
 
 export default App

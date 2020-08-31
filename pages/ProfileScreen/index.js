@@ -3,14 +3,16 @@ import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import { Tabs } from '@ant-design/react-native';
 
 import SingerTab from './singer'
+import NewDisc from './newdisc'
+import RankList from './ranklist'
 export default class BasicTabsExample extends React.Component {
     render() {
         const tabs = [
-            { title: '首页' },
+            // { title: '首页' },
             { title: '歌手' },
             { title: '新碟' },
             { title: '排行榜' },
-            { title: '分类歌单' },
+            // { title: '分类歌单' },
             { title: '电台' },
             { title: '数字专辑' }
         ];
@@ -23,22 +25,22 @@ export default class BasicTabsExample extends React.Component {
         };
         return (
             <View style={{ flex: 1 }}>
-                <Tabs  tabs={tabs} swipeable={true} tabBarActiveTextColor="#2ec17d" tabBarInactiveTextColor="#000" tabBarUnderlineStyle={{ backgroundColor:"#2ec17d" }}>
-                    <View style={style}>
+                <Tabs  tabs={tabs} swipeable={true} tabBarActiveTextColor="#f73c40" tabBarInactiveTextColor="#000" tabBarUnderlineStyle={{ backgroundColor:"#f73c40" }}>
+                    {/* <View style={style}>
                         <Text>首页</Text>
-                    </View>
+                    </View> */}
                     <View style={style}>
                         <SingerTab />
                     </View>
                     <View style={style}>
-                        <Text>新碟</Text>
+                        <NewDisc />
                     </View>
                     <View style={style}>
-                        <Text>排行榜</Text>
+                        <RankList/>
                     </View>
-                    <View style={style}>
+                    {/* <View style={style}>
                         <Text>分类歌单</Text>
-                    </View>
+                    </View> */}
                     <View style={style}>
                         <Text>电台</Text>
                     </View>

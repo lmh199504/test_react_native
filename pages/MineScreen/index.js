@@ -80,7 +80,7 @@ class Mine extends React.Component{
                         </View>
                     </View>
                     <View style={{ width:'100%',overflow:'hidden',marginBottom:10 }}>
-                        <ScrollView horizontal={true}>
+                        <ScrollView horizontal={true} pagingEnabled={true}>
                             
                             <View style={styles.mymusic_item}>
                                 <Image source={require('./images/bg.jpg')} style={ styles.music_Item_bg }/>

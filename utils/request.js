@@ -1,5 +1,5 @@
 import axios from 'axios'
-const ConfigBaseURL = 'http://192.168.1.3:3200'
+const ConfigBaseURL = 'http://192.168.3.3:3200'
 const Service = axios.create({
     timeout: 10000, // 请求超时时间
     baseURL: ConfigBaseURL,

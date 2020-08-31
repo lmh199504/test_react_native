@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView,TouchableHighlight } from 'react-native'
 import styles from './styles'
 import Swiper from 'react-native-swiper'
 
 class FindScreen extends React.Component {
+
+    
 
     render() {
         const sweperOptions = {
@@ -12,6 +14,7 @@ class FindScreen extends React.Component {
             showsPagination: true,
             index: 0
         }
+        const { navigation } = this.props
         return (
             <ScrollView style={ {marginBottom:50} }>
                 <View style={styles.container}>
@@ -46,12 +49,17 @@ class FindScreen extends React.Component {
                             </View>
                             <Text style={ styles.menu_text}>每日推荐</Text>
                         </View>
-                        <View style={styles.red_menu}>
-                            <View style={styles.menu_Icon}>
-                                <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+
+                        <TouchableHighlight onPress={ () => navigation.push('GeDan') } >
+                            <View style={styles.red_menu}>
+                                <View style={styles.menu_Icon}>
+                                    <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
+                                </View>
+                                <Text style={ styles.menu_text}>歌单</Text>
                             </View>
-                            <Text style={ styles.menu_text}>歌单</Text>
-                        </View>
+                        </TouchableHighlight>
+
+                        
                         <View style={styles.red_menu}>
                             <View style={styles.menu_Icon}>
                                 <Image style={ styles.mene_Icon_img } source={require('./images/rili.png')}/>
