@@ -33,28 +33,30 @@ class GeDanTab extends React.Component {
 
         return (
             <ScrollView style={styles.ScrollView}>
-                <View>
-                    {
-                        categories.map((item, index) => (
-                            <View key={index}>
+
+                {
+                    categories.map((item, index) => (
+                        <View key={index}>
+                            <View>
                                 <Text style={styles.categoryGroupName}>
                                     {item.categoryGroupName}
                                 </Text>
-                                <View styles={ styles.categoryNameCon }>
-                                    {
-                                        item.items.map((category, i )=> (
-                                            <TouchableOpacity key={i} style={styles.name_item}>
-                                                <View>
-                                                    <Text>{category.categoryName}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                        ))
-                                    }
-                                </View>
                             </View>
-                        ))
-                    }
-                </View>
+                            <View style={styles.categoryNameCon}>
+                                {
+                                    item.items.map((category, i) => (
+                                        <View key={i} style={styles.name_item}>
+                                            <View style={styles.name_item_box}>
+                                                <Text style={styles.name_item_Text}>{category.categoryName}</Text>
+                                            </View>
+                                        </View>
+                                    ))
+                                }
+                            </View>
+                        </View>
+                    ))
+                }
+
             </ScrollView>
         )
     }

@@ -12,8 +12,10 @@ import LoginScreen from './pages/LoginScreen'
 // import player from './pages/Audio'
 import GeDanScreen from './pages/GeDan'
 import GeDanTabScreen from './pages/GeDanTab'
-
-
+import RadioScreen from './pages/Radio'
+import DayScreen from './pages/DaySuggest'
+import RankScreen from './pages/ranklist'
+import SingerScreen from './pages/singer'
 const Stack = createStackNavigator();
 
 class App extends React.Component {
@@ -29,10 +31,12 @@ class App extends React.Component {
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                         header: () => { return null }
                     }} />
-                    <Stack.Screen name="Search" component={SearchScreen} options={{ title: "搜索" }} options={{
+                    <Stack.Screen name="Search" component={SearchScreen} options={{
+                        title: "搜索",
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
                     }} />
-                    <Stack.Screen name="Play" component={PlayScreen} options={{ title: "播放" }} options={{
+                    <Stack.Screen name="Play" component={PlayScreen} options={{
+                        title: "播放",
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
                     }} />
 
@@ -46,7 +50,7 @@ class App extends React.Component {
                         ({ navigation }) => ({
                             title: "歌单",
                             headerTitleAlign: "center",
-                            headerRight: () => <ToTab navigation={navigation}/>,
+                            headerRight: () => <ToTab navigation={navigation} />,
                             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                             // header: () => { return null }
 
@@ -58,6 +62,30 @@ class App extends React.Component {
                         headerTitleAlign: "center",
                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
                     }} />
+
+                    <Stack.Screen name="Radio" component={RadioScreen} options={{
+                        title: "电台",
+                        headerTitleAlign: "center",
+                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+                    }} />
+
+                    <Stack.Screen name="Day" component={DayScreen} options={{
+                        title: "每日推荐",
+                        headerTitleAlign: "center",
+                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+                    }} />
+
+                    <Stack.Screen name="Rank" component={RankScreen} options={{
+                        title: "排行榜",
+                        headerTitleAlign: "center",
+                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+                    }} />
+                    <Stack.Screen name="Singer" component={SingerScreen} options={{
+                        title: "歌手",
+                        headerTitleAlign: "center",
+                        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+                    }} />
+
                 </Stack.Navigator>
             </NavigationContainer>
         )

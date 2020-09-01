@@ -3,22 +3,24 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { Tabs } from '@ant-design/react-native'
-import VideoItem from './videoItem'
-class Video extends React.Component {
+import NewItem from './newItem'
+class NewSong extends React.Component {
     render() {
 
-
         const tabs = [
-			{"id": 15,"title": "全部",lan:"all"},
-			{"id": 16,"title": "内地",lan:"neidi"},
-			{"id": 17,"title": "港台",lan:"korea"},
-			{"id": 18,"title": "欧美",lan:"gangtai"},
-			{"id": 19,"title": "韩国",lan:"oumei"},
-			{"id": 20,"title": "日本",lan:"janpan"}
-		]
+            { title: '最新', type: 5 },
+            { title: '内地', type: 1 },
+            { title: '港台', type: 6 },
+            { title: '欧美', type: 2 },
+            { title: '韩国', type: 4 },
+            { title: '日本', type: 3 }
+        ];
 
         return (
-            <View style={{ flex: 1 ,marginBottom:50}}>
+            <View style={{ flex: 1 }}>
+                <Text style={ {textAlign:'center',padding:10,fontSize:16} }>
+                    新歌首发
+                </Text>
                 <Tabs
                     tabs={tabs}
                     renderTabBar={tabProps => (
@@ -64,8 +66,8 @@ class Video extends React.Component {
                 >
                     {
                         tabs.map(item => (
-                            <View key={item.id}>
-                                <VideoItem lan={item.lan}/>
+                            <View key={item.type}>
+                                <NewItem type={item.type} />
                             </View>
                         ))
                     }
@@ -75,4 +77,4 @@ class Video extends React.Component {
     }
 }
 
-export default Video
+export default NewSong

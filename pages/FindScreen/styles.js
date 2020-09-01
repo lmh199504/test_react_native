@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     },
     swiperCon:{
         marginBottom:10,
-        height:200
+        height:220,
+        overflow:"hidden"
     },
     top_slider:{
         padding:5,
@@ -20,7 +21,8 @@ const styles = StyleSheet.create({
     top_slider_img:{
         width:'100%',
         borderRadius:10,
-        height:'100%'
+        height:'100%',
+        overflow:'hidden'
     },
     red_menu:{
         width:50,
