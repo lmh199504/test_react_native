@@ -12,6 +12,8 @@ target 'AwesomeProject' do
 
   pod 'RNSound', :path => '../node_modules/react-native-sound'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'AwesomeProjectTests' do
     inherit! :complete
     # Pods for testing

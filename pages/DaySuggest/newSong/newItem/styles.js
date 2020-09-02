@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
         padding:5
     },
     coverImg:{
-        borderRadius:5
+        borderRadius:5,
+        width:"100%"
     },
     singer:{
         color:"#999",

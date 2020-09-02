@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Toast } from '@ant-design/react-native'
 const ConfigBaseURL = 'http://192.168.3.3:3200'
 const Service = axios.create({
     timeout: 10000, // 请求超时时间
@@ -17,10 +18,21 @@ Service.interceptors.request.use(config => {
 })
 // 添加响应拦截器
 Service.interceptors.response.use(response => {
-
+	try{
+		// if(response.data.code !== 0 && response.data.data.code !== 0){
+		//     message.error(response.data.msg)
+		// }
+		
+		if(response.data.code === 10000){
+			Toast.fail(response.data.msg)
+		}
+	}catch(e){
+		
+	}
     return response.data
 }, error => {
-
+    const msg = error.Message !== undefined ? error.Message : '请求错误.'
+    Toast.fail(msg)
     return Promise.reject(error)
 })
 

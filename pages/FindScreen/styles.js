@@ -10,13 +10,12 @@ const styles = StyleSheet.create({
     },
     swiperCon:{
         marginBottom:10,
-        height:220,
+        height:150,
         overflow:"hidden"
     },
     top_slider:{
         padding:5,
-        borderRadius:10,
-        overflow:"hidden"
+        height:"100%"
     },
     top_slider_img:{
         width:'100%',
