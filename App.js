@@ -31,29 +31,17 @@ class App extends React.Component {
     state = {
         userId: ''
     }
-    componentDidMount = async () => {
+    componentDidMount = () => {
 
-        console.log(store.getState())
-        try {
-            const userId = await AsyncStorage.getItem('userId')
-            if (userId) {
-                this.setState({
-                    userId
-                })
-            }
-        } catch (error) {
-
-        }
     }
 
     render() {
-        const { userId } = this.state
-        
+
         return (
             <Provider store={store}>
                 <AntdProvider>
                     <NavigationContainer>
-                        <Stack.Navigator initialRouteName={!!userId ? 'Home' : 'Login'} >
+                        <Stack.Navigator initialRouteName={'Home'} >
                             <Stack.Screen name="Home" component={HomeDrawer} options={{
                                 cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                                 header: () => { return null }

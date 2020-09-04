@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap:'wrap',
         justifyContent:'space-between',
-        paddingBottom:100
+        paddingBottom:100,
+        minHeight:200
     },
     geDan_Item:{
         width:'48%',

@@ -171,3 +171,16 @@ export const sleep = async (time) => {
 }
 
 
+
+//请求安卓系统相应权限
+export function requestPermission(androidPermissionName, callBack, iosCallBack) {
+    if (!IS_IOS) {
+        PermissionsAndroid.request(androidPermissionName).then((response) => {
+            if (response === PermissionsAndroid.RESULTS.GRANTED) {
+                callBack && callBack();
+            }
+        })
+    } else {
+        iosCallBack && iosCallBack();
+    }
+}

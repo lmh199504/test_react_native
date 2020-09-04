@@ -5,30 +5,58 @@ import AsyncStorage from '@react-native-community/async-storage'
 // import { InputItem } from '@ant-design/react-native'
 import styles from './styles'
 import { connect } from 'react-redux'
-import { login } from '../../redux/actions'
+import { login, getUserInfo } from '../../redux/actions'
+
+import RNExitApp from 'react-native-exit-app';
 
 class Login extends React.Component {
 
     state = {
-		username:'',
-		password:''
+        username: '',
+        password: ''
     }
-    
-    _onChangeText = (name,input) => {
+
+    _onChangeText = (name, input) => {
         this.setState({
-            [name]:input.trim()
+            [name]: input.trim()
         })
     }
 
     onSubmit = () => {
-		this.props.login(this.state)
+        this.props.login(this.state)
+    }
+
+    componentDidMount = async () => {
+        const userId = await AsyncStorage.getItem('userId')
+        if (userId) {
+            this.props.getUserInfo({ userId })
+            this.props.navigation.navigate('Home')
+        }
+
+        this.backHandler = BackHandler.addEventListener('hardwareBackPress',
+            this.onBackButtonPressAndroid);
     }
     componentDidUpdate = async () => {
-
-        const { username }  = this.props.user
         const userId = await AsyncStorage.getItem('userId')
-        if(username && userId){
-            this.props.navigation.push('Home')
+        if (userId) {
+            this.props.navigation.navigate('Home')
+        }
+    }
+    componentWillUnmount() {
+        this.backHandler && this.backHandler.remove();
+    }
+
+
+    onBackButtonPressAndroid = () => {
+        if (this.props.navigation.isFocused()) {
+            if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+                //最近2秒内按过back键，可以退出应用。
+                RNExitApp.exitApp();
+                return false;
+            }
+            this.lastBackPressed = Date.now();
+            ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
+            return true;
         }
     }
 
@@ -40,13 +68,13 @@ class Login extends React.Component {
 
                 <View style={styles.login_box}>
                     <View>
-                        <TextInput textContentType="username" placeholderTextColor="#8c8c8c" placeholder="用戶名" style={styles.TextInput} 
-                            onChangeText={ (input) => this._onChangeText('username',input) }
+                        <TextInput textContentType="username" placeholderTextColor="#8c8c8c" placeholder="用戶名" style={styles.TextInput}
+                            onChangeText={(input) => this._onChangeText('username', input)}
                         />
-                        <TextInput textContentType="password" placeholderTextColor="#8c8c8c" placeholder="密码" style={styles.TextInput} 
-                            onChangeText={ (input) => this._onChangeText('password',input) }/>
+                        <TextInput textContentType="password" placeholderTextColor="#8c8c8c" placeholder="密码" style={styles.TextInput}
+                            onChangeText={(input) => this._onChangeText('password', input)} />
                         <TouchableOpacity style={styles.loginBtn}
-                            onPress={ () => this.onSubmit() } >
+                            onPress={() => this.onSubmit()} >
                             <View>
                                 <Text style={styles.loginText}>
                                     登陆
@@ -73,5 +101,5 @@ export default connect(
     state => ({
         user: state.user
     }),
-    { login }
+    { login, getUserInfo }
 )(Login)
